@@ -1,3 +1,3 @@
 class Publisher < ActiveRecord::Base
-	has_many :book
+	has_many :books
 end

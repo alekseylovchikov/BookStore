@@ -1,2 +1,7 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<h4>Authors</h4>
+
+<ol>
+	<% @books.each do |book| %>
+		<li><%= link_to book.title, book_path(book.id) %></li>
+	<% end %>
+</ol>

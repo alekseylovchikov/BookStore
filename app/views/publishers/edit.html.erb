@@ -1,2 +1,11 @@
-<h1>Publishers#edit</h1>
-<p>Find me in app/views/publishers/edit.html.erb</p>
+<h1>Publisher Edit</h1>
+
+<%= form_for @publisher do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Type here publisher name' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-success' %>
+  <%= link_to 'Cancel', publishers_path, class: 'btn btn-default' %>
+<% end %>
