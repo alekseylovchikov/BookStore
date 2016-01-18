@@ -1,0 +1,13 @@
+<h1>Must see: We have a new books!</h1>
+
+<% @books.each_slice(4) do |books| %>
+	<div class="row">
+		<% books.each do |book| %>
+			<div class="col-md-3">
+				<h4><%= book.title %></h4>
+				<p><%= link_to image_tag(book.cover_path, class: 'img-responsive img-thumbnail'), book_path(book.id) %></p>
+				<p><%= link_to 'More...', book_path(book.id), class: 'btn btn-success' %></p>
+			</div>
+		<% end %>
+	</div>
+<% end %>

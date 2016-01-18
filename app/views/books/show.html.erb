@@ -1,0 +1,26 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @book.title %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag(@book.cover_path, class: 'img-responsive') %>
+      </div>
+      <div class="col-md-8">
+        <h4>About info</h4>
+        <ul>
+          <li><strong>Category:</strong> <%= link_to @book.category.name, category_path(@book.category_id) %></li>
+          <li><strong>Author:</strong> <%= link_to @book.author.first_name + ' ' + @book.author.last_name, author_path(@book.author_id) %></li>
+          <li><strong>Publisher:</strong> <%= link_to @book.publisher.name, publisher_path(@book.publisher_id) %></li>
+          <li><strong>Year:</strong> <%= @book.year %></li>
+          <li><strong>Pages:</strong> <%= @book.pages %></li>
+        </ul>
+        <p><%= @book.info %></p>
+        <p class="lead alert alert-info"><%= @book.price %></p>
+        <%= link_to 'Buy', @book.buy, class: 'btn btn-success pull-right', target: '_blank' %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Edit', edit_book_path(@book.id), class: 'btn btn-primary' %> <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>

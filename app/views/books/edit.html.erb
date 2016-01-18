@@ -1,0 +1,54 @@
+<%= form_for @book do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: 'Book title' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :info %>
+    <%= f.text_area :info, class: 'form-control', placeholder: 'Book info' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.text_field :year, class: 'form-control', placeholder: 'Book year' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pages %>
+    <%= f.text_field :pages, class: 'form-control', placeholder: 'Book pages' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publisher %>
+    <%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]}, {include_blank: 'Select One'}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {include_blank: 'Select One'}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author %>
+    <%= f.select :author_id, Author.all.collect {|x| [x.first_name + ' ' + x.last_name, x.id]}, {include_blank: 'Select One'}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cover_path %>
+    <%= f.text_field :cover_path, class: 'form-control', placeholder: 'Image URL' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control', placeholder: 'Book price' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :buy %>
+    <%= f.text_field :buy, class: 'form-control', placeholder: 'Buy link' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-success' %>
+  <%= link_to 'Cancel', books_path, class: 'btn btn-default' %>
+<% end %>

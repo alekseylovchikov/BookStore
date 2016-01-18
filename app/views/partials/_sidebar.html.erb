@@ -1,0 +1,27 @@
+<% if params[:controller] == 'about' && params[:action] == 'index' %>
+	<div class="well">
+		<legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+	    <address>
+	        <strong>Twitter, Inc.</strong><br>
+	        795 Folsom Ave, Suite 600<br>
+	        San Francisco, CA 94107<br>
+	        <abbr title="Phone">P:</abbr> (495) 183-5445
+	    </address>
+	    <address>
+	        <strong>Full Name</strong><br>
+	        <p>Aleksey Lovchikov</p>
+	        <a href="mailto:svdmusic@gmail.com">svdmusic@gmail.com</a>
+	    </address>
+	</div>
+<% end %>
+
+<% if (params[:controller] == 'books' || params[:controller] == 'categories') && (params["action"] == 'index' || params[:action] == 'show') %>
+	<div class="well">
+		<h4>Categories</h4>
+		<div class="list-group">
+			<% @categories.each do |category| %>
+				<%= link_to category.name, category_path(category.id), class: 'list-group-item' %>
+  		<% end %>
+		</div>
+	</div>
+<% end %>

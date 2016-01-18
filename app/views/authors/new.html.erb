@@ -1,0 +1,16 @@
+<h1><%= @page_title %></h1>
+
+<%= form_for @author do |f| %>
+	<div class="form-group">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, class: 'form-control', placeholder: 'Type here author first name' %>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Type here author last name' %>
+	</div>
+
+    <%= f.submit 'Submit', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', authors_path, class: 'btn btn-default' %>
+<% end %>
